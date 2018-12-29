@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load placeholder %}
+{% load render_bundle from webpack_loader %}
+{% load static %}
+{% load translate_url from urls %}
+{% load render_table from django_tables2 %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <hr class="mt-0 mb-4">
+      <div>
+        {% block content %}
+        {% load django_tables2 %}
+        {% for table in tables %}
+        {% render_table table %}
+        {% endfor %}
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        {% crispy form %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+  {
+    {
+      webpage_schema | safe
+    }
+  }
+</script>

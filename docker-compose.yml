@@ -1,0 +1,85 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        STATIC_URL: '/static/'
+    restart: unless-stopped
+    networks:
+      - saleor-backend-tier
+    ports:
+      - 8000:8000
+    env_file: common.env
+    depends_on:
+      - db
+      - redis
+      - search
+    command: python manage.py runserver 0.0.0.0:8000
+
+  db:
+    image: library/postgres:latest
+    restart: unless-stopped
+    networks:
+      - saleor-backend-tier
+    volumes:
+      - saleor-db:/var/lib/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=saleor
+      - POSTGRES_PASSWORD=saleor
+
+  redis:
+    image: library/redis:latest
+    restart: unless-stopped
+    networks:
+      - saleor-backend-tier
+    volumes:
+      - saleor-redis:/data
+    ports:
+      - 6379:6379
+
+  celery:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        STATIC_URL: '/static/'
+    command: celery -A saleor worker --app=saleor.celeryconf:app --loglevel=info
+    restart: unless-stopped
+    networks:
+      - saleor-backend-tier
+    volumes:
+      - .:/app:Z
+    env_file: common.env
+    depends_on:
+      - redis
+
+  search:
+    image: elasticsearch:6.4.2
+    restart: unless-stopped
+    networks:
+      - saleor-backend-tier
+    volumes:
+      - saleor-search:/usr/share/elasticsearch/
+    ports:
+      - 9200:9200
+    # See https://github.com/docker/compose/issues/4513 if updating to version '3'
+    mem_limit: 512m
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m -Dlog4j2.disable.jmx=true"
+
+volumes:
+  saleor-db:
+    driver: local
+  saleor-redis:
+    driver: local
+  saleor-search:
+    driver: local
+
+networks:
+  saleor-backend-tier:
+    driver: bridge
