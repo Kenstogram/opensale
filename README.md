@@ -5,7 +5,7 @@
 <Beta now available!>
 
 
-### Installation on Raspberry Pi
+### Installation for Raspberry Pi
 Ensure you have virtualenv installed and on your path
 ```
 $ which virtualenv
@@ -25,15 +25,6 @@ $ sudo apt-get install build-essential python3-dev python3-pip python3-cffi libc
 $ sudo apt-get install libjpeg8-dev
 $ python3 -m pip install pillow pysycopg2
 $ python3 -m pip install -r requirements_dev.txt
-```
-### Testing
-Build the database by running all available migrations:
-```
-$ python manage.py migrate
-```
-You can run a local server by running this command from the root of the repo
-```
-$ python manage.py runserver
 ```
 ### Configure psql for raspberry pi
 ```
