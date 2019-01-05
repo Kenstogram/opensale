@@ -60,15 +60,15 @@ $ npm install
 https://github.com/nodesource/distributions/blob/master/README.md
 ### Configure NPM for raspberry pi
 ```
-$curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-$sudo apt-get install -y nodejs
+$ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
 $ node -v
 $ npm install --save-dev webpack-cli
 ```
 ### Configure NPM for raspberry pi
 ```
 $ npm i -D extract-text-webpack-plugin@next
-$vnpm run build-assets
+$ npm run build-assets
 $ npm run build-emails
 ```
 ### Start development server
