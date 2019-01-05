@@ -49,13 +49,9 @@ $ python manage.py runserver
 ### Configure psql for raspberry pi
 ```
 $ sudo apt-get update
-
-```
 ```
 $sudo apt install postgresql libpq-dev postgresql-client 
 postgresql-client-common -y
-```
-
 ```
 $ sudo su postgres
 ```
@@ -91,18 +87,13 @@ https://github.com/nodesource/distributions/blob/master/README.md
 $curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 $sudo apt-get install -y nodejs
 $ node -v
-
 $ npm install --save-dev webpack-cli
 ```
 ### Configure NPM for raspberry pi
 
 ```
 $ npm i -D extract-text-webpack-plugin@next
-
-```
 $vnpm run build-assets
-```
-```
 $ npm run build-emails
 ```
 ### Start development server
