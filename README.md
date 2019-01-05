@@ -22,7 +22,7 @@ $ sudo apt-get install libjpeg8-dev
 $ python3 -m pip install pillow pysycopg2
 $ python3 -m pip install -r requirements_dev.txt
 ```
-### GIT Waitingblock
+### Git Waitingblock
 ```
 $ cd Documents/
 $ mkdir Copies/
