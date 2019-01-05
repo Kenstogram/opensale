@@ -10,8 +10,8 @@ def create_default_site(apps, schema_editor):
     SiteSettings = apps.get_model('site', 'SiteSettings')
     settings_id = getattr(settings, 'SITE_SETTINGS_ID', None)
     SiteSettings.objects.get_or_create(pk=settings_id, defaults={
-        'name': 'Saleor e-commerce',
-        'header_text': 'Test Saleor - a sample shop!',
+        'name': 'opensale e-commerce',
+        'header_text': 'support opensale',
         'domain': 'localhost:8000'})
 
 class Migration(migrations.Migration):

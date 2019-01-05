@@ -6,6 +6,8 @@ from django.forms import ModelForm
 from .models import Table
 
 
+
+
 class TableForm(forms.ModelForm):
     class Meta:
         model = Table
@@ -15,7 +17,7 @@ class TableForm(forms.ModelForm):
             'contact',
             'status',
         )
-
+        
     def __init__(self, *args, **kwargs):
         super(TableForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
@@ -28,7 +30,6 @@ class TableUpdateForm(forms.ModelForm):
     class Meta:
         model = Table
         fields = ('status', )
-
 #    def update_db_field(customer, status, value):
 #        Customer.objects.get(name=name).update(field=True)
 #    status = models.BooleanField()

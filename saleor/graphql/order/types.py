@@ -2,22 +2,15 @@ import graphene
 import graphene_django_optimizer as gql_optimizer
 from graphene import relay
 
-from ...order import OrderEvents, OrderEventsEmails, models
-from ...product.templatetags.product_images import get_thumbnail
+from ...order import models
+from ...product.templatetags.product_images import get_product_image_thumbnail
 from ..account.types import User
-from ..core.types.common import CountableDjangoObjectType
+from ..core.connection import CountableDjangoObjectType
 from ..core.types.money import Money, TaxedMoney
 from ..payment.types import OrderAction, Payment, PaymentChargeStatusEnum
 from ..shipping.types import ShippingMethod
+from .enums import OrderEventsEmailsEnum, OrderEventsEnum
 from .utils import can_finalize_draft_order
-
-OrderEventsEnum = graphene.Enum.from_enum(OrderEvents)
-OrderEventsEmailsEnum = graphene.Enum.from_enum(OrderEventsEmails)
-
-
-class OrderStatusFilter(graphene.Enum):
-    READY_TO_FULFILL = 'READY_TO_FULFILL'
-    READY_TO_CAPTURE = 'READY_TO_CAPTURE'
 
 
 class OrderEvent(CountableDjangoObjectType):
@@ -131,7 +124,7 @@ class OrderLine(CountableDjangoObjectType):
             return None
         if not size:
             size = 255
-        url = get_thumbnail(
+        url = get_product_image_thumbnail(
             self.variant.get_first_image(), size, method='thumbnail')
         return info.context.build_absolute_uri(url)
 
@@ -214,6 +207,7 @@ class Order(CountableDjangoObjectType):
     def resolve_shipping_price(self, info):
         return self.shipping_price
 
+    @gql_optimizer.resolver_hints(prefetch_related='payments__transactions')
     def resolve_actions(self, info):
         actions = []
         payment = self.get_last_payment()
@@ -236,7 +230,7 @@ class Order(CountableDjangoObjectType):
         return self.total
 
     @staticmethod
-    @gql_optimizer.resolver_hints(prefetch_related='payments')
+    @gql_optimizer.resolver_hints(prefetch_related='payments__transactions')
     def resolve_total_authorized(self, info):
         # FIXME adjust to multiple payments in the future
         return self.total_authorized

@@ -8,7 +8,7 @@
 
 <html lang="{{ LANGUAGE_CODE }}" class="no-js" data-shipping-options-url="{% url 'cart:shipping-options' %}" data-cart-summary-url="{% url 'cart:summary' %}">
 <head>
-  <title>{% block title %}{{ site.name }}{% endblock %}</title>
+  <title>{% block title %}opensale e-commerce{% endblock %}</title>
   {% block meta %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,14 +53,12 @@
       <div class=" d-none d-md-block container">
       <div class="row">
         <div class="col-6">
-          <p class="text-left">{{ site.settings.translated.header_text }}</p>
+          <p class="text-left">support opensale</p>
         </div>
         <div class="col-6">
           <ul class="float-right">
             {% get_available_languages as LANGUAGES %}
-
-            {# We display language picker only if there're languages to pick from #}
-            {% if LANGUAGES|length > 1 %}
+         {% if LANGUAGES|length > 1 %}
               {% get_current_language as LANGUAGE_CODE %}
               <li>
                 <div class="language-picker dropdown show">
@@ -253,29 +251,17 @@
           </ul>
         </div>
         <div class="col-md-3 col-sm-12">
-          <a target="_blank" rel="noopener" class="social-footer" href="https://www.facebook.com/mirumeelabs/">
+          <a target="_blank" rel="noopener" class="social-footer" href="https://www.facebook.com/djangoopensale/">
             <svg data-src="{% static "images/facebook-logo.svg" %}" width="45px" height="45px"/>
           </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://github.com/mirumee/saleor">
+          <a target="_blank" rel="noopener" class="social-footer" href="https://github.com/kenstogram/opensale">
             <svg data-src="{% static "images/github-logo.svg" %}" width="45px" height="45px"/>
           </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://twitter.com/getsaleor">
+          <a target="_blank" rel="noopener" class="social-footer" href="https://twitter.com/waitingblock">
             <svg data-src="{% static "images/twitter-logo.svg" %}" width="45px" height="45px"/>
           </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://plus.google.com/+Mirumee">
-            <svg data-src="{% static "images/google-logo.svg" %}" width="45px" height="45px"/>
-          </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://www.meetup.com/Mirumee-Talks/">
-            <svg data-src="{% static "images/meetup-logo.svg" %}" width="45px" height="45px"/>
-          </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://linkedin.com/company/mirumee-software">
+          <a target="_blank" rel="noopener" class="social-footer" href="https://linkedin.com/company/opensale">
             <svg data-src="{% static "images/linkedin-logo.svg" %}" width="45px" height="45px"/>
-          </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://dribbble.com/mirumee">
-            <svg data-src="{% static "images/dribbble-logo.svg" %}" width="45px" height="45px"/>
-          </a>
-          <a target="_blank" rel="noopener" class="social-footer" href="https://www.instagram.com/explore/tags/mirumee/">
-            <svg data-src="{% static "images/instagram-logo.svg" %}" width="45px" height="45px"/>
           </a>
         </div>
       </div>

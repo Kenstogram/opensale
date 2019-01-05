@@ -30,8 +30,6 @@ def home(request):
 def styleguide(request):
     return TemplateResponse(request, 'styleguide.html')
 
-#def waitingblock(request):
-#    return TemplateResponse(request, 'waitingblock.html')
 
 def impersonate(request, uid):
     response = orig_impersonate(request, uid)

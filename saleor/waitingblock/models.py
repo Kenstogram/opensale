@@ -15,10 +15,12 @@ class Table(models.Model):
     arrival_time = models.DateTimeField(auto_now_add=True, editable=False)
     contact = PhoneNumberField(blank=True)
     status = models.BooleanField(choices=BOOL_CHOICES, default=True)
-    slug = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
+    table_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 #    owner = models.ForeignKey(User, default='1', on_delete=models.CASCADE)
     highlighted = models.TextField()
+    
+    def get_absolute_url(self):
+        return reverse('table.views.details', args=[str(self.id)])
 
     def get_time_diff(self):
         if self.arrival_time:

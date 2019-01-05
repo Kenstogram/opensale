@@ -11,10 +11,11 @@ from ....product.thumbnails import (
     create_category_background_image_thumbnails,
     create_collection_background_image_thumbnails, create_product_thumbnails)
 from ....product.utils.attributes import get_name_from_attributes
+from ...core.enums import TaxRateType
 from ...core.mutations import BaseMutation, ModelDeleteMutation, ModelMutation
-from ...core.types import Decimal, SeoInput, TaxRateType, Upload
+from ...core.scalars import Decimal, WeightScalar
+from ...core.types import SeoInput, Upload
 from ...core.utils import clean_seo_fields
-from ...shipping.types import WeightScalar
 from ..types import Category, Collection, Product, ProductImage, ProductVariant
 from ..utils import attributes_to_hstore
 
@@ -25,6 +26,8 @@ class CategoryInput(graphene.InputObjectType):
     slug = graphene.String(description='Category slug')
     seo = SeoInput(description='Search engine optimization fields.')
     background_image = Upload(description='Background image file.')
+    background_image_alt = graphene.String(
+        description='Alt text for an image.')
 
 
 class CategoryCreate(ModelMutation):
@@ -109,7 +112,11 @@ class CollectionInput(graphene.InputObjectType):
     slug = graphene.String(description='Slug of the collection.')
     description = graphene.String(description='Description of the collection.')
     background_image = Upload(description='Background image file.')
+    background_image_alt = graphene.String(
+        description='Alt text for an image.')
     seo = SeoInput(description='Search engine optimization fields.')
+    published_date = graphene.Date(
+        description='Publication date. ISO 8601 standard.')
 
 
 class CollectionCreateInput(CollectionInput):
@@ -607,8 +614,10 @@ class ProductImageUpdate(BaseMutation):
             info, id, errors, 'id', only_type=ProductImage)
         product = image.product
         if not errors:
-            image.alt = input.get('alt', '')
-            image.save()
+            alt = input.get('alt')
+            if alt is not None:
+                image.alt = alt
+                image.save(update_fields=['alt'])
         return ProductImageUpdate(product=product, image=image, errors=errors)
 
 

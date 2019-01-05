@@ -10,11 +10,13 @@
     <div class="col-8">
       <hr class="mt-0 mb-4">
       <div>
+        <a></a>
         {% block content %}
         {% load django_tables2 %}
         {% for table in tables %}
         {% render_table table %}
         {% endfor %}
+        <a></a>
         {% load crispy_forms_tags %}
         {% csrf_token %}
         {% crispy form %}

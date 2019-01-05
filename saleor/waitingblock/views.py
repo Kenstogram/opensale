@@ -20,7 +20,6 @@ class TablesView(MultiTableMixin, FormView, TemplateView):
     context_object_name = 'Table'
     table_pagination = {'per_page': 5}
     order_by_field = ['arrival_time']
-    slug_url_kwarg = 'slug'
     table_class = CustomerTable
     table_data = Table.objects.all()
     #    filter_class = CustomerListFilter
@@ -30,7 +29,7 @@ class TablesView(MultiTableMixin, FormView, TemplateView):
         qs = Table.objects.all()
         return [
             CustomerTable(
-                qs, exclude=('arrival_time', 'contact'))
+                qs, exclude=('arrival_time', 'contact', 'table_id','slug'))
         ]
 
     def form_valid(self, form):
@@ -47,10 +46,9 @@ class TablesView(MultiTableMixin, FormView, TemplateView):
 class TablesUpdateView(MultiTableMixin, FormView, TemplateView):
     model = Table
     template_name = 'waitingblock_update.html'
-    context_object_name = 'Table'
-    table_pagination = {'per_page': 5}
+    context_object_name = 'status_update'
+#    table_pagination = {'per_page': 1}
     order_by_field = ['arrival_time']
-    slug_url_kwarg = 'slug'
     table_class = CustomerUpdateTable
     table_data = Table.objects.all()
     #    filter_class = CustomerListFilter
@@ -60,7 +58,7 @@ class TablesUpdateView(MultiTableMixin, FormView, TemplateView):
         qs = Table.objects.all()
         return [
             CustomerTable(
-                qs, exclude=('arrival_time', 'contact'))
+                qs, exclude=('arrival_time', 'contact', 'seat', 'slug'))
         ]
 
     def form_valid(self, form):
