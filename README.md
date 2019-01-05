@@ -26,6 +26,14 @@ $ sudo apt-get install libjpeg8-dev
 $ python3 -m pip install pillow pysycopg2
 $ python3 -m pip install -r requirements_dev.txt
 ```
+### GIT Waitingblock
+```
+$ cd Documents/
+$ mkdir Copies/
+$ cd Copies/
+```
+$ git clone https://github.com/Kenstogram/opensale.git
+```
 ### Configure psql for raspberry pi
 ```
 $ sudo apt-get update
