@@ -1,9 +1,5 @@
-# opensale ecommerce
-## for raspberry pi
-
-
-<Beta now available!>
-
+# opensale ecommerce for raspberry pi
+## beta now available!
 
 ### Installation for Raspberry Pi
 Ensure you have virtualenv installed and on your path
