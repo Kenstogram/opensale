@@ -31,16 +31,13 @@ $ python3 -m pip install -r requirements_dev.txt
 $ cd Documents/
 $ mkdir Copies/
 $ cd Copies/
-```
 $ git clone https://github.com/Kenstogram/opensale.git
 ```
 ### Configure psql for raspberry pi
 ```
 $ sudo apt-get update
-```
 $sudo apt install postgresql libpq-dev postgresql-client 
 postgresql-client-common -y
-```
 $ sudo su postgres
 ```
 ### Follow configuration steps and update settings.py psql info
