@@ -44,7 +44,10 @@ $ sudo su postgres
 ```
 $ createuser pi -P --interactive
 ```
-after prompt $exit to exit psql
+### Exit psql after prompt 
+```
+$exit
+```
 ### Prepare database
 ```
 $ python3 manage.py makemigrations
