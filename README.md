@@ -40,9 +40,24 @@ $sudo apt install postgresql libpq-dev postgresql-client
 postgresql-client-common -y
 $ sudo su postgres
 ```
-### Follow configuration steps and update settings.py psql info
+### Follow configuration steps
 ```
 $ createuser pi -P --interactive
+```
+### Update Settings.py (Note: do not use these passwords and names for production)
+```
+#settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'myPassword',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 ```
 ### Exit psql after prompt 
 ```
