@@ -27,9 +27,10 @@ $ git clone https://github.com/Kenstogram/opensale.git
 ```
 Install the required dependencies for developing this project:
 ```
-$ sudo apt-get install build-essential python3-dev python3-pip python3-cffi libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
+$ sudo apt-get install build-essential python3-dev python3-pip python3-cffi 
+$ sudo apt-get install libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 $ sudo apt-get install libjpeg8-dev
-$ python3 -m pip install pillow pysycopg2
+$ python3 -m pip install pillow psycopg2
 $ python3 -m pip install -r requirements_dev.txt
 ```
 ### Configure psql for raspberry pi
