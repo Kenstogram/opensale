@@ -42,9 +42,10 @@ $ createuser pi -P --interactive
 ```
 ### Prepare database
 ```
+$ python3 manage.py makemigrations
 $ python3 manage.py migrate
 ```
-### Migrate Waitingblock for Waitinglist App
+### Migrate Waitingblock for Waitinglist App (optional)
 ```
 $ python3 manage.py migrate Waitingblock
 ```
@@ -54,7 +55,6 @@ $ npm install
 ```
 ### Install Node for Ubuntu
 https://github.com/nodesource/distributions/blob/master/README.md
-### Configure NPM for raspberry pi
 ```
 $ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
