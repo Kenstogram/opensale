@@ -111,34 +111,22 @@ module.exports = (env, argv) => {
           }
         },
         {
-          test: /\.(gif|png|jpe?g|svg)$/i,
-              loader: 'image-webpack-loader',
-              options: {
-                disable: true, // webpack@2.x and newer
-                gifsicle: {
-                  interlaced: false,
-                },
-              },
-            },
-          ],
-        },
-        {
-          test: /\.(eot|otf|png|svg|jpg|ttf|woff|woff2|gif)(\?v=[0-9.]+)?$/,
+          test: /\.(eot|otf|png|svg|gif|jpg|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
           loader: fileLoaderPath,
           include: [
             resolve('node_modules'),
             resolve('saleor/static/fonts'),
             resolve('saleor/static/images'),
-            resolve('saleor/static/dashboard/images'),
+            resolve('saleor/static/dashboard/images')
           ]
-        },
-        {
-
+        }
+      ]
+    },
     plugins: [
       bundleTrackerPlugin,
       extractCssPlugin,
       providePlugin,
-      checkerPlugin,
+      checkerPlugin
     ],
     resolve: {
       alias: {
