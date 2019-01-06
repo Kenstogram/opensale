@@ -1,3 +1,4 @@
+![alt text](/saleor/static/images/logo-document.svg)
 # opensale ecommerce for raspberry pi
 ## beta now available!
 
