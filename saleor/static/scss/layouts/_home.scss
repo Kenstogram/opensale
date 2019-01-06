@@ -42,7 +42,25 @@
   }
   &__block1 {
     .home--square {
-      background-image: url('../images/block1.jpg');
+      @for $i from 1 through 8 {
+
+        .row:nth-child(#{$i}) {
+          .item:first-child {
+            .image {
+              background-image: url('../images/block1/image-#{$i}.jpg');
+
+            }
+
+          }
+          .item:last-child {
+            .image {
+              background-image: url(('../images/block1/image-#{$i+1}.jpg');
+            }
+          }
+
+        }
+
+      }
       @include media-breakpoint-up(md) {
         &:before {
           padding-top: 50%;
