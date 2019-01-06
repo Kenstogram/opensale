@@ -15,19 +15,19 @@ Activate your virtual environment
 ```
 $ source myenv/bin/activate
 ```
+### Git opensale
+```
+$ cd Documents/
+$ mkdir Copies/
+$ cd Copies/
+$ git clone https://github.com/Kenstogram/opensale.git
+```
 Install the required dependencies for developing this project:
 ```
 $ sudo apt-get install build-essential python3-dev python3-pip python3-cffi libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 $ sudo apt-get install libjpeg8-dev
 $ python3 -m pip install pillow pysycopg2
 $ python3 -m pip install -r requirements_dev.txt
-```
-### Git Waitingblock
-```
-$ cd Documents/
-$ mkdir Copies/
-$ cd Copies/
-$ git clone https://github.com/Kenstogram/opensale.git
 ```
 ### Configure psql for raspberry pi
 ```
@@ -42,28 +42,28 @@ $ createuser pi -P --interactive
 ```
 ### Prepare database
 ```
+$ python3 manage.py makemigrations
 $ python3 manage.py migrate
 ```
-### Migrate Waitingblock for Waitinglist App
+### Migrate Waitingblock for Waitinglist App (optional)
 ```
 $ python3 manage.py migrate Waitingblock
 ```
-### Install front-end
-```
-$ npm install
-```
 ### Install Node for Ubuntu
 https://github.com/nodesource/distributions/blob/master/README.md
-### Configure NPM for raspberry pi
 ```
 $ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 $ node -v
-$ npm install --save-dev webpack-cli
 ```
 ### Configure NPM for raspberry pi
 ```
+$ npm install --save-dev webpack-cli
 $ npm i -D extract-text-webpack-plugin@next
+```
+### Install front-end
+```
+$ npm install
 $ npm run build-assets
 $ npm run build-emails
 ```
