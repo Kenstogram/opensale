@@ -40,9 +40,9 @@ $sudo apt install postgresql libpq-dev postgresql-client
 postgresql-client-common -y
 $ sudo su postgres
 ```
-### Follow configuration steps
+### Follow configuration steps (Note: do not use these passwords and names for production)
 ```
-$ createuser pi -P --interactive
+$ createuser postgres -P --interactive
 ```
 ### Update Settings.py (Note: do not use these passwords and names for production)
 ```
