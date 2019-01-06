@@ -49,21 +49,21 @@ $ python3 manage.py migrate
 ```
 $ python3 manage.py migrate Waitingblock
 ```
-### Install front-end
-```
-$ npm install
-```
 ### Install Node for Ubuntu
 https://github.com/nodesource/distributions/blob/master/README.md
 ```
 $ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 $ node -v
-$ npm install --save-dev webpack-cli
 ```
 ### Configure NPM for raspberry pi
 ```
+$ npm install --save-dev webpack-cli
 $ npm i -D extract-text-webpack-plugin@next
+```
+### Install front-end
+```
+$ npm install
 $ npm run build-assets
 $ npm run build-emails
 ```
