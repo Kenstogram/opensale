@@ -27,9 +27,10 @@ $ git clone https://github.com/Kenstogram/opensale.git
 ```
 Install the required dependencies for developing this project:
 ```
-$ sudo apt-get install build-essential python3-dev python3-pip python3-cffi libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
+$ sudo apt-get install build-essential python3-dev python3-pip python3-cffi 
+$ sudo apt-get install libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 $ sudo apt-get install libjpeg8-dev
-$ python3 -m pip install pillow pysycopg2
+$ python3 -m pip install pillow psycopg2
 $ python3 -m pip install -r requirements_dev.txt
 ```
 ### Configure psql for raspberry pi
@@ -39,9 +40,28 @@ $sudo apt install postgresql libpq-dev postgresql-client
 postgresql-client-common -y
 $ sudo su postgres
 ```
-### Follow configuration steps and update settings.py psql info
+### Follow configuration steps (Note: do not use these passwords and names for production)
 ```
-$ createuser pi -P --interactive
+$ createuser postgres -P --interactive
+```
+### Update Settings.py (Note: do not use these passwords and names for production)
+```
+#settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'myPassword',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+```
+### Exit psql after prompt 
+```
+$exit
 ```
 ### Prepare database
 ```
