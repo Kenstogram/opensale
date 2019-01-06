@@ -1,4 +1,4 @@
-![alt text]https://raw.githubusercontent.com/Kenstogram/opensale/master/saleor/static/images/logo-document.svg
+![alt text](https://raw.githubusercontent.com/Kenstogram/opensale/master/saleor/static/images/logo-document.svg)
 # opensale ecommerce for raspberry pi
 ## beta now available!
 
