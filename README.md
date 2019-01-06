@@ -15,7 +15,7 @@ Activate your virtual environment
 ```
 $ source myenv/bin/activate
 ```
-### Git Waitingblock
+### Git opensale
 ```
 $ cd Documents/
 $ mkdir Copies/
