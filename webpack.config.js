@@ -119,7 +119,22 @@ module.exports = (env, argv) => {
             resolve('saleor/static/images'),
             resolve('saleor/static/dashboard/images')
           ]
-        }
+        },
+        {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true, // webpack@2.x and newer
+              gifsicle: {
+                interlaced: false,
+              },
+            },
+          },
+        ],
+      }
       ]
     },
     plugins: [
@@ -137,4 +152,3 @@ module.exports = (env, argv) => {
     devtool: 'sourceMap'
   };
 };
-
