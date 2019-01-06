@@ -157,7 +157,7 @@ tinycss2==0.6.1
 typing==3.6.6
 unidecode==1.0.23
 urllib3==1.23 ; python_version >= '3.4'
-uwsgi==2.0.17.1 ; platform_system != 'Windows'
+#uwsgi==2.0.17.1 ; platform_system != 'Windows'
 vine==1.1.4
 vcrpy==2.0.1
 virtualenv==16.1.0
@@ -166,4 +166,3 @@ yapf==0.25.0
 yarl==1.2.6 ; python_version >= '3.4'
 weasyprint==43
 webencodings==0.5.1
-
