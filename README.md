@@ -73,7 +73,7 @@ $ python3 manage.py migrate
 ```
 ### Migrate Waitingblock for Waitinglist App (optional)
 ```
-$ python3 manage.py migrate Waitingblock
+$ python3 manage.py migrate waitingblock
 ```
 ### Install Node for Ubuntu
 https://github.com/nodesource/distributions/blob/master/README.md
