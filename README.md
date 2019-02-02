@@ -40,7 +40,7 @@ $ python3 -m pip install -r requirements_dev.txt
 ### Configure psql for raspberry pi
 ```
 $ sudo apt install postgresql libpq-dev postgresql-client
-postgresql-client-common -y
+$ sudo apt install postgresql-client-common -y
 $ sudo su postgres
 ```
 ### Follow configuration steps (Note: do not use these passwords and names for production)
@@ -73,7 +73,7 @@ $ python3 manage.py migrate
 ```
 ### Migrate Waitingblock for Waitinglist App (optional)
 ```
-$ python3 manage.py migrate Waitingblock
+$ python3 manage.py migrate waitingblock
 ```
 ### Install Node for Ubuntu
 https://github.com/nodesource/distributions/blob/master/README.md
