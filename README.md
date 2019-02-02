@@ -3,6 +3,10 @@
 ## beta now available!
 
 ### Installation for Raspberry Pi
+Stay up to date!
+```
+$ sudo apt-get update
+```
 Ensure you have virtualenv installed and on your path
 ```
 $ which virtualenv
@@ -35,8 +39,7 @@ $ python3 -m pip install -r requirements_dev.txt
 ```
 ### Configure psql for raspberry pi
 ```
-$ sudo apt-get update
-$sudo apt install postgresql libpq-dev postgresql-client
+$ sudo apt install postgresql libpq-dev postgresql-client
 postgresql-client-common -y
 $ sudo su postgres
 ```
