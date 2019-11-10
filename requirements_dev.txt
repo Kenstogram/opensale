@@ -67,7 +67,7 @@ django-tables2==2.0.3
 django-versatileimagefield==1.10
 django-webpack-loader==0.6.0
 django-zebra==0.4.5
-django==2.1.5
+django==2.1.11
 docutils==0.14
 elasticsearch-dsl==6.0.1
 elasticsearch==6.0.0
