@@ -109,7 +109,7 @@ promise==2.2.1
 purl==1.4
 pycodestyle==2.4.0
 pycparser==2.19
-pygments==2.3.0
+pygments==2.7.4
 pyjwt==1.7.0
 pyphen==0.9.5
 python-dateutil==2.7.5 ; python_version >= '2.7'
