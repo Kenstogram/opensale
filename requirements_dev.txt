@@ -18,11 +18,11 @@ boto3==1.9.57
 botocore==1.12.57
 braintree==3.49.0
 celery[redis]==4.2.1
-certifi==2018.11.29
+certifi==2022.12.7
 chardet==3.0.4
 cssselect2==0.2.1
 celery[redis]==4.2.1
-certifi==2018.11.29
+certifi==2022.12.7
 chardet==3.0.4
 codecov==2.0.15
 coverage==4.5.2
